@@ -12,12 +12,13 @@ A simple yet interactive **Tic-Tac-Toe** game built with **React** and bundled u
 
 ## 🧰 Features
 
-- 🔁 Two-player local game
-- 🧠 Turn-based logic with logging and visual highlights
-- 🧍 Rename players dynamically
-- ✅ Win and draw detection
-- 💡 Built with **Vite** for lightning-fast development
-- 📱 Fully responsive design
+- 🔁 Two-player local game  
+- 🧠 Turn-based logic with logging and visual highlights  
+- 🧍 Rename players dynamically  
+- ✅ Win and draw detection  
+- 🤖 Play against a player 2 or unbeatable AI opponent (default)  
+- 💡 Built with Vite for lightning-fast development  
+- 📱 Fully responsive design  
 
 ---
 
