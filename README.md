@@ -33,7 +33,7 @@ A simple yet interactive **Tic-Tac-Toe** game built with **React** and bundled u
 
 ```bash
 # 1. Clone the repo
-git clone [https://github.com/yourusername/tic-tac-toe-vite.git](https://github.com/gameover35/tic-tac-toe.git)
+git clone https://github.com/gameover35/tic-tac-toe.git
 cd tic-tac-toe
 
 # 2. Install dependencies
