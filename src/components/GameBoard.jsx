@@ -1,5 +1,6 @@
 export default function GameBoard({ onSelectSquare, board }) {
   return (
+    <div>
     <ol id="game-board">
       {board.map((row, rowIndex) => (
         <li key={rowIndex}>
@@ -18,5 +19,7 @@ export default function GameBoard({ onSelectSquare, board }) {
         </li>
       ))}
     </ol>
+    <h4>Practice Project by <a href="https://github.com/gameover35/tic-tac-toe">Saad Sarfraz</a></h4>
+    </div>
   );
 }

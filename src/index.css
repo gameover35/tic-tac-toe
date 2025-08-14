@@ -23,7 +23,7 @@ body {
       rgba(70, 110, 241, 0.98),
       rgba(115, 103, 250, 0.87)
     ),
-    url("bg-pattern-dark.png");
+    url("/bg-pattern-dark.png");
   background-repeat: repeat;
   background-size: 100% 100%, 30% 30%, 100% 100%;
   min-height: 110rem;
@@ -51,10 +51,11 @@ h1 {
   color: #fff;
 }
 
-h2 {
+h4 {
   font-family: "Caprasimo", cursive;
-  font-size: 2rem;
-  margin: 0 auto 3rem auto;
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 0.5 auto 0.5rem auto;
   color: #fff;
 }
 
