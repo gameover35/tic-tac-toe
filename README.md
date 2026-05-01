@@ -6,7 +6,7 @@ A simple yet interactive **Tic-Tac-Toe** game built with **React** and bundled u
 
 ## 🚀 Live Demo
 
-[👉 Play the Game](https://dotcodev.com/projects/tic-tac-toe/dist/index.html)
+[👉 Play the Game](https://tic-tac-toe-five-silk-36.vercel.app/)
 
 ---
 
