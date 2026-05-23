@@ -18,15 +18,27 @@ html {
 }
 
 body {
-  background: radial-gradient(
-      circle at top,
-      rgba(70, 110, 241, 0.98),
-      rgba(115, 103, 250, 0.87)
-    ),
-    url("/bg-pattern-dark.png");
-  background-repeat: repeat;
-  background-size: 100% 100%, 30% 30%, 100% 100%;
-  min-height: 110rem;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0 1rem;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f8fafc;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.28), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.3), transparent 34%),
+    linear-gradient(135deg, #020617 0%, #0f172a 48%, #111827 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent);
+  pointer-events: none;
 }
 
 header {
@@ -34,25 +46,30 @@ header {
 }
 
 header img {
-  width: 8rem;
+  width: 16rem;
   object-fit: contain;
-  margin: 3rem auto 1rem auto;
+  margin: 1rem auto 0rem auto;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 
-a{
+a {
   color: #fff;
 }
 
 h1 {
-  font-family: "Caprasimo", cursive;
-  font-size: 3rem;
-  margin: 0 auto 0rem auto;
-  color: #fff;
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: clamp(2.1rem, 7vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  background: linear-gradient(135deg, #f8fafc, #7dd3fc 45%, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 38px rgba(56, 189, 248, 0.28);
 }
 
 h4 {
-  font-family: "Caprasimo", cursive;
   font-size: 0.8rem;
   text-align: center;
   margin: 0.5 auto 0.5rem auto;
@@ -63,9 +80,13 @@ h4 {
   max-width: 45rem;
   margin: 3rem auto;
   padding: 2rem;
-  border-radius: 6px;
-  background: linear-gradient(#383624, #282617);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 32px;
+  background: rgba(15, 23, 42, 0.72);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(22px);
   position: relative;
 }
 
@@ -88,20 +109,20 @@ h4 {
 }
 
 #players.highlight-player li.active {
-  border-color: #fff;
+  border-color: #99F7FF;
   animation: pulse 2s infinite ease-in-out;
 }
 
 #players.highlight-player li.active .player-name,
 #players.highlight-player li.active .player-symbol {
-  color: #fff;
+  color: #99F7FF;
 }
 
 #players button {
   width: 3rem;
   border: none;
   background: none;
-  color: #c3ba78;
+  color: #FD81D6;
   font-size: 0.9rem;
   cursor: pointer;
   transition: color 0.2s;
@@ -187,6 +208,7 @@ ol {
   margin: 3rem 0;
   padding: 0;
   flex-direction: column;
+
 }
 
 #game-board ol {
@@ -196,18 +218,59 @@ ol {
   gap: 2rem;
   margin: 0;
   padding: 0;
+
 }
+
 
 #game-board button {
   width: 8rem;
   height: 8rem;
-  border: none;
-  background: #aca788;
-  color: #3f3b00;
-  font-size: 5rem;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 22px;
   cursor: pointer;
-  font-family: "Caprasimo", cursive;
-  padding: 1rem;
+  color: #f8fafc;
+  background:
+    linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.96));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.34);
+  font-size: clamp(2.6rem, 15vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+#game-board button:hover {
+  transform: translateY(-3px) scale(1.02);
+  background:
+    linear-gradient(145deg, rgba(51, 65, 85, 0.98), rgba(30, 41, 59, 0.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 18px 34px rgba(14, 165, 233, 0.2);
+}
+
+
+
+#game-board button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+#game-board button:not(:empty) {
+  text-shadow: 0 0 24px currentColor;
+}
+
+#game-board button:nth-child(odd):not(:empty) {
+  color: #67e8f9;
+}
+
+#game-board button:nth-child(even):not(:empty) {
+  color: #f0abfc;
+}
+
+#game-board button.O {
+  color: #FD81D6 !important;
 }
 
 #game-over {
@@ -216,11 +279,13 @@ ol {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 999;
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(40, 38, 23, 0.95);
+  background-color: rgba(17, 16, 16, 0.95);
   animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
 }
 
@@ -228,7 +293,7 @@ ol {
   font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-align: center;
-  color: #fcd256;
+  color: #fff;
   margin: 0;
 }
 
@@ -243,8 +308,8 @@ ol {
   margin: 0 auto;
   font-size: 1.5rem;
   background: none;
-  border: 2px solid #fcd256;
-  color: #fcd256;
+  border: 2px solid #fff;
+  color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -253,7 +318,7 @@ ol {
 }
 
 #game-over button:hover {
-  background: #fcd256;
+  background: #fff;
   color: #3f3b00;
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
@@ -306,16 +371,21 @@ ol {
 }
 
 @media screen and (max-width: 760px) {
+
   .player-name,
   .player input {
     width: 6rem;
+  }
+
+  header img {
+    width: 8rem;
   }
 }
 
 @media screen and (max-width: 620px) {
   #game-board button {
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     font-size: 2rem;
     padding: 0.5rem;
   }
@@ -323,7 +393,8 @@ ol {
 
 @media screen and (max-width: 520px) {
   #players {
-    display: block; /* or flex/column if you're using flex */
+    display: block;
+    /* or flex/column if you're using flex */
     width: 100%;
   }
 
@@ -340,6 +411,7 @@ ol {
     opacity: 0;
     transform: translateX(-30%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -350,9 +422,11 @@ ol {
   0% {
     color: #e1dec7;
   }
+
   50% {
     color: #9f9d83;
   }
+
   100% {
     color: #e1dec7;
   }
@@ -362,9 +436,11 @@ ol {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
+
   100% {
     transform: scale(1);
   }
@@ -375,15 +451,18 @@ ol {
     border-color: #fff;
     box-shadow: 0 0 0 0 rgba(246, 227, 90, 0.4);
   }
+
   50% {
-    border-color: #f8c031;
+    border-color: #99F7FF;
     box-shadow: 0 0 0 0.5rem rgba(248, 165, 49, 0);
   }
+
   100% {
     border-color: #fff;
     box-shadow: 0 0 0 0 rgba(246, 227, 90, 0);
   }
 }
+
 
 /* Fancy animation for showing the "Game Over" element */
 @keyframes pop-in {
@@ -391,10 +470,12 @@ ol {
     transform: scale(0);
     opacity: 0;
   }
+
   80% {
     transform: scale(1.1);
     opacity: 1;
   }
+
   100% {
     transform: scale(1);
   }
